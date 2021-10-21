@@ -235,7 +235,7 @@ JAVA_BUILD_DIR = ${TRICK_HOME}/libexec/trick/java/build
 ifeq (${TRICK_OFFLINE}, 0)
 java: ${JAVA_BUILD_DIR}
 
-${JAVA_BUILD_DIR}: 
+${JAVA_BUILD_DIR}:
 	@ $(MAKE) -C ${TRICK_HOME}/trick_source/java
 
 .PHONY: javadoc
@@ -254,10 +254,10 @@ endef
 
 $(foreach JAR,$(JARS),$(eval $(call JAR_FUN,$(JAR))))
 
-${JAVA_BUILD_DIR}: 
+${JAVA_BUILD_DIR}:
 	mkdir -p ${TRICK_HOME}/libexec/trick/java/build
 
-java: ${JAR_TARGETS} 
+java: ${JAR_TARGETS}
 	@echo offline mode: java code copied successfully
 
 endif
@@ -330,7 +330,7 @@ clean_sim_serv:
 	done
 	@ $(MAKE) -C ${TRICK_HOME}/trick_source/sim_services/mains real_clean
 
-clean_er7_utils: 
+clean_er7_utils:
 	@for i in $(ER7_UTILS_DIRS) ; do \
 	   $(MAKE) -C $$i real_clean ; \
 	done
@@ -455,3 +455,5 @@ trick_lib: $(SIM_SERV_DIRS) $(UTILS_DIRS) | $(TRICK_LIB_DIR)
 
 # For NASA/JSC developers include optional rules
 -include Makefile_jsc_dirs
+
+# Add changes to Makefile
